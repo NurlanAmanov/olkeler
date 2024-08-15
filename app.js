@@ -2259,6 +2259,7 @@ let olkeler = document.querySelector('.olkeler')
 const menu = document.getElementById("menu")
 const nav = document.querySelector("nav")
 const link = menu.querySelectorAll('a')
+const btn = document.querySelector("#btn")
 
 
 
@@ -2336,7 +2337,7 @@ function deyis() {
 
 function showEurope(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
@@ -2360,7 +2361,7 @@ function showEurope(e) {
 }
 function showAsia(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
@@ -2384,7 +2385,7 @@ function showAsia(e) {
 }
 function showAmericas(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
@@ -2408,7 +2409,7 @@ function showAmericas(e) {
 }
 function showOceania(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
@@ -2432,7 +2433,7 @@ function showOceania(e) {
 }
 function showAntarctic(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
@@ -2456,7 +2457,7 @@ function showAntarctic(e) {
 }
 function showAfrica(e) {
     e.preventDefault()
-
+   btn.style.display = 'none'
     const olkem = document.getElementById('olkem')
     olkem.innerHTML = ''
     data.map(item => {
