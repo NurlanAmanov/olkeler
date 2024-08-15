@@ -7,7 +7,7 @@
 }
 
 body {
-  background: rgb(229 231 235);
+    background: rgb(229 231 235);
 }
 
 header {
@@ -15,22 +15,27 @@ header {
     padding: 20px;
     width: 100%;
     height: 12vh;
-}
-nav{
 
-    padding: 16px;
 }
+
+nav {
+    padding: 16px;
+
+}
+
 .headercontent {
     position: relative;
-   
+
 }
+
 .content-main {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    height: max-content;
+    overflow: hidden;
+
 }
 
 .content-main i {
@@ -51,76 +56,45 @@ nav{
     border-bottom: 2px solid #8B5CF6 !important;
 }
 
-nav button{
-    border: none;
-    background: transparent;
-    font-size: 25px;
-}
-.mobilemenu {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    background: #fff;
-position: absolute;
- z-index: 1000;
- top: 45px;
-width: 100%;
-margin:  auto;
-
- 
-
-}
-#mobilmenu{
-    transition: .5s all;
-}
-#mobilmenu >*{
-   
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-    text-decoration: none;
-   margin-top: 20px;
-   padding-bottom: 5px;
-   border-bottom: 1px solid #e5e7eb;
-}
-.show {
-    display: none;
-    
-}
-.open{
-    display: block;
+#menu {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
     text-align: center;
-    height: 40vh;
-   width: 100%;
-   margin: auto;
+    transition: all 0.8s;
+    position: absolute;
+    right: -100%;
+    left: 20px;
+    background: #fff;
 
-    
+    li {
+
+        font-size: 1.3em;
+        padding: 10px;
+
+    }
+
+    a {
+        color: #000;
+        margin: 10px;
+
+    }
 }
 
-#menu hr {
-    width: 50vw;
-    height: 1px;
-    border-color: #E5E7EB;
-    margin: 10px 0;
-}
+#menu.open {
+    height: 30vh;
+    transition: 1s all;
 
-#menu li {
+    right: 0;
 
-    padding-bottom: 10px;
-}
-
-#menu li a {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: none;
-    font-size: 1em;
-    color: #000;
-    border-bottom: none !important;
 }
 
 .content-desktop {
     display: none;
 }
-.text-content{
-  
+
+.text-content {
+
     width: 100%;
     display: flex;
     align-items: center;
@@ -128,27 +102,31 @@ margin:  auto;
     flex-direction: column;
     gap: 40px;
     margin: 30px auto;
-    
+
 }
-.text-main{
-    
+
+.text-main {
+
     text-align: center;
     padding: 15px;
 }
-.text-main h2{
+
+.text-main h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.875rem;
     font-weight: 700;
 }
-.text-main p{
+
+.text-main p {
     margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color:#8B5CF6;
+    color: #8B5CF6;
     font-size: 1.875rem;
     line-height: 2.25rem;
     font-weight: 700;
 }
-.buttons{
+
+.buttons {
     margin-top: 30px;
     width: 100%;
     display: flex;
@@ -157,7 +135,8 @@ margin:  auto;
     flex-direction: column;
     gap: 30px;
 }
-#btn1{
+
+#btn1 {
     width: 170px;
     padding: 15px;
     background: #8B5CF6;
@@ -169,7 +148,8 @@ margin:  auto;
     font-weight: 700;
 
 }
-#btn2{
+
+#btn2 {
     width: 170px;
     padding: 15px;
     background: #000;
@@ -182,28 +162,32 @@ margin:  auto;
 
 }
 
-footer{
+footer {
     background: #fff;
     padding: 10px;
     width: 100%;
 
 }
+
 .footercont {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding:5px;
+    padding: 5px;
 }
-.footercont h4{
+
+.footercont h4 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1em;
 }
-.footercont img{
+
+.footercont img {
     width: 55%;
     object-fit: cover;
 }
+
 .frstcountry {
     max-width: 80%;
     margin: auto;
@@ -212,23 +196,26 @@ footer{
     border-bottom: 2px solid #8B5CF6;
 }
 
-.frstcountry img{
+.frstcountry img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 
 }
-.desc>*{
+
+.desc>* {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
-    a{
-font-family: Arial, Helvetica, sans-serif;
+
+    a {
+        font-family: Arial, Helvetica, sans-serif;
         text-decoration: none;
     }
-   margin-top: 10px;
+
+    margin-top: 10px;
 }
 
-.olkeler{
+.olkeler {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -236,61 +223,84 @@ font-family: Arial, Helvetica, sans-serif;
     justify-content: center;
     margin: 40px 0;
 }
-.olke{
-        height: 350px;
-        width: 300px;
-        margin: 20px 10px;
-        text-align: left;
-        background: #fff;
-}
-.bayraq{
-    height: 50%;
+
+#olkeler {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.olke {
+    height: 350px;
+    width: 300px;
+    margin: 20px 10px;
+    text-align: left;
+    background: #fff;
+    padding: 5px;
+}
+
+#olke {
+    height: 350px;
+    width: 300px;
+    margin: 20px 10px;
+    text-align: left;
+    background: #fff;
     
 }
-.bayraq img{
-   
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    
+
+
+
+.olke img {
+    width: 100%;
+    object-fit: cover;
 }
-.about,.statiska{
-    padding: 10px;
-}
-.about h5{
+
+
+.olke h5 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size:1.2em ;
+    font-size: 1.5em;
     margin-bottom: 10px;
-    color:black;
+    color: black;
 }
-.about h3{
+
+#span p {
+    font-size: 1.2em;
+}
+
+.olke h3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
     font-size: 1.2em;
     font-weight: 500;
 }
-.statiska{
-    font-size: 14px;
+
+.statiska {
     display: flex;
-        justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
 }
-.statiska span{
+.statiska span {
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    font-size: 1em;
+    margin-top: 5px;
+    font-size: 1.1em;
 }
-.show-buton{
+
+.show-buton {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px auto;
     width: 100%;
 }
-.show-buton button{
+
+.show-buton button {
     background: transparent;
     width: 30%;
-    height:30px;
+    height: 30px;
     background: rgb(12, 155, 238);
     color: #fff;
     border: none;
@@ -299,46 +309,52 @@ font-family: Arial, Helvetica, sans-serif;
     border-radius: 5px;
     padding: 5px;
 }
+
 .dark-mode {
     background-color: rgb(31 41 55);
     color: orange;
-  }
-  body.dark-mode {
-    background-color: rgb(31, 41, 55); 
-    color: #ffffff; 
 }
-.dark-mode .olke{
+
+body.dark-mode {
+    background-color: rgb(31, 41, 55);
+    color: #ffffff;
+}
+
+.dark-mode .olke {
     background: rgb(17 24 39);
 }
-.dark-mode .show-buton  button{
-    background-color:orange;
+
+.dark-mode .show-buton button {
+    background-color: orange;
 }
-.dark-mode #mobilmenu   a{
+
+.dark-mode #mobilmenu a {
     color: #fff;
 }
-.dark-mode header, 
+
+.dark-mode header,
 .dark-mode .content-main,
 .dark-mode #mobilmenu,
-.dark-mode footer  {
-    background-color: rgb(31, 41, 55); 
-   
-    
- 
+.dark-mode footer {
+    background-color: rgb(31, 41, 55);
+
+
+
 }
-.dark-mode 
-.dark-mode a,
+
+.dark-mode .dark-mode a,
 .dark-mode h2,
 .dark-mode h3,
 .dark-mode h5,
 .dark-mode p,
 .dark-mode span,
 .dark-mode button {
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .dark-mode .desc h3 a,
 .dark-mode .desc h5 a {
-    color: orange !important; 
+    color: orange !important;
 }
 
 .dark-mode .desc h5 a {
@@ -347,11 +363,11 @@ font-family: Arial, Helvetica, sans-serif;
 
 .dark-mode #btn1 {
     background: #8B5CF6;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .dark-mode #btn2 {
-    background: #000000; 
+    background: #000000;
     color: #ffffff;
 }
 
@@ -368,19 +384,12 @@ font-family: Arial, Helvetica, sans-serif;
 
 
     }
+
     .show {
         display: none;
-        
+
     }
-    .open{
-        display: none;
-        text-align: center;
-        height: 40vh;
-       width: 100%;
-       margin: auto;
-    
-        
-    }
+
 
     .content-desktop {
         display: flex;
@@ -398,8 +407,8 @@ font-family: Arial, Helvetica, sans-serif;
         margin-left: 30px;
         text-decoration: none;
         font-size: 1.4em;
-        padding: 5px 0;   
-        border-bottom: 2px solid #e5e7eb!important;
+        padding: 5px 0;
+        border-bottom: 2px solid #e5e7eb !important;
 
 
 
@@ -409,8 +418,8 @@ font-family: Arial, Helvetica, sans-serif;
     .svg-desktop {
         color: #8b5cf6;
         margin: 0 -15px;
-        padding: 5px 0;   
-        border-bottom: 2px solid #e5e7eb!important;
+        padding: 5px 0;
+        border-bottom: 2px solid #e5e7eb !important;
     }
 
     .content-desktop svg {
@@ -424,11 +433,13 @@ font-family: Arial, Helvetica, sans-serif;
         right: 2%;
 
     }
-    .desktip-hr{
-    transform: translate(-60px,20px);
+
+    .desktip-hr {
+        transform: translate(-60px, 20px);
         width: 50px;
     }
-    .text-content{
+
+    .text-content {
         width: 100%;
         display: flex;
         align-items: center;
@@ -436,27 +447,31 @@ font-family: Arial, Helvetica, sans-serif;
         flex-direction: column;
         gap: 40px;
         margin: 100px auto;
-        
+
     }
-    .text-main{
-        
+
+    .text-main {
+
         text-align: center;
         padding: 15px;
     }
-    .text-main h2{
+
+    .text-main h2 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 2.3rem;
         font-weight: 700;
     }
-    .text-main p{
+
+    .text-main p {
         margin-top: 20px;
         font-family: Arial, Helvetica, sans-serif;
-        color:#8B5CF6;
+        color: #8B5CF6;
         font-size: 2em;
         line-height: 2.25rem;
         font-weight: 700;
     }
-    .buttons{
+
+    .buttons {
         margin-top: 30px;
         width: 100%;
         display: flex;
@@ -465,7 +480,8 @@ font-family: Arial, Helvetica, sans-serif;
         flex-direction: row;
         gap: 30px;
     }
-    #btn1{
+
+    #btn1 {
         width: 170px;
         padding: 15px;
         background: #8B5CF6;
@@ -475,9 +491,10 @@ font-family: Arial, Helvetica, sans-serif;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1em;
         font-weight: 700;
-    
+
     }
-    #btn2{
+
+    #btn2 {
         width: 170px;
         padding: 15px;
         background: #000;
@@ -487,130 +504,156 @@ font-family: Arial, Helvetica, sans-serif;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1em;
         font-weight: 700;
-    
+
     }
+
     .dark-mode {
         background-color: rgb(31 41 55);
         color: orange;
-      }
-      body.dark-mode {
-        background-color: rgb(31, 41, 55); 
-        color: #ffffff; 
     }
-    .dark-mode .olke{
+
+    body.dark-mode {
+        background-color: rgb(31, 41, 55);
+        color: #ffffff;
+    }
+
+    .dark-mode .olke {
         background: rgb(17 24 39);
     }
-    .dark-mode .show-buton  button{
-        background-color:orange;
+
+    .dark-mode .show-buton button {
+        background-color: orange;
     }
-    .dark-mode #mobilmenu   a{
+
+    .dark-mode #mobilmenu a {
         color: #fff;
     }
-    .dark-mode header, 
+
+    .dark-mode header,
     .dark-mode .content-main,
     .dark-mode #mobilmenu,
-    .dark-mode footer  {
-        background-color: rgb(31, 41, 55); 
-       
-        
-     
+    .dark-mode footer {
+        background-color: rgb(31, 41, 55);
+
+
+
     }
-    .dark-mode .dekstop a{
+
+    .dark-mode .dekstop a {
         color: #Ffff;
     }
-    .dark-mode 
-    .dark-mode a,
+
+    .dark-mode .dark-mode a,
     .dark-mode h2,
     .dark-mode h3,
     .dark-mode h5,
     .dark-mode p,
     .dark-mode span,
     .dark-mode button {
-        color: #ffffff; 
+        color: #ffffff;
     }
-    
+
     .dark-mode .desc h3 a,
     .dark-mode .desc h5 a {
-        color: orange !important; 
+        color: orange !important;
     }
-    
+
     .dark-mode .desc h5 a {
         color: red !important;
     }
-    
+
     .dark-mode #btn1 {
         background: #8B5CF6;
-        color: #ffffff; 
-    }
-    
-    .dark-mode #btn2 {
-        background: #000000; 
         color: #ffffff;
     }
-    footer{
+
+    .dark-mode #btn2 {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    footer {
         background: #fff;
         padding: 30px;
         width: 100%;
     }
-    
+
     .frstcountry {
         height: 400px;
         display: flex;
         align-items: center;
         gap: 10px;
         max-width: 80%;
+
+    }
+
+    .frstcountry .img {
+        width: 50%;
+        height: 100%;
+    }
+
+    .frstcountry img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+
+    .desc {
+        width: 50%;
+        padding: 30px;
+        height: 100%;
+        background: #fff;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    .desc h3 a {
+        text-decoration: none;
+        color: orange !important;
+        font-size: 1.7em;
+
+
+    }
+
+    .desc h5 a {
+        color: red;
+    }
+
+    .olke img {
+        width: 100%;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        padding-bottom: 10px;
+    }
     
+    #olke {
+        height: max-content;
+        width: 300px;
+        margin: 20px 10px;
+        text-align: left;
+        background: #fff;
+    }
+ 
+#olke h3,span,p{
+    margin: 0 0 0 0 ;
 }
-.frstcountry .img{
-    width: 50%;
-    height: 100%;
-}
-.frstcountry img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    .footercont {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 5px;
+    }
 
-}
-.desc{
-    width: 50%;
-    padding: 30px;
-    height: 100%;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-.desc  h3 a{
-    text-decoration: none;
-    color: orange!important;
-    font-size: 1.7em;
+    .footercont h4 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1.2em;
+    }
 
-
+    .footercont img {
+        width: 15%;
+        object-fit: cover;
+    }
 }
-.desc h5 a{
-    color: red;
-}
-.olke{
-    height: 350px;
-    width: 300px;
-    margin: 20px 10px;
-    text-align: left;
-    background: #fff;
-}
-.footercont {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    padding:5px;
-}
-.footercont h4{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2em;
-}
-.footercont img{
-    width: 15%;
-    object-fit: cover;
-}
-}
-        
-
-

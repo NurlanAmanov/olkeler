@@ -2250,24 +2250,25 @@ let data = [
         "region": "Americas",
         "population": 13452
     }
-] 
+]
 
 
 
 let frstcountry = document.querySelector('.frstcountry')
 let olkeler = document.querySelector('.olkeler')
-
-
+const menu = document.getElementById("menu")
+const nav = document.querySelector("nav")
+const link = menu.querySelectorAll('a')
 
 
 
 function basla() {
-    data.sort(()=>Math.random()-0.5);
+    data.sort(() => Math.random() - 0.5);
 
-data.map((item)=> {
-   
-    frstcountry.innerHTML =
-    `<div class="img">
+    data.map((item) => {
+
+        frstcountry.innerHTML =
+            `<div class="img">
     <img src="${item.flag}" alt="Country flag"></div>
     <div class="desc">
         <h3><a href="#">${item.name}</a></h3>
@@ -2276,10 +2277,11 @@ data.map((item)=> {
         <p>Area: <span class="area">${item.area} km<sup>2</sup></span></p>
         <p>Popilation: <span class="ehali">${item.population}</span></p>
      </div>`
-})
+    })
 
-function rand(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;}
+    function rand(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }
 basla()
 function gosterolke(olke) {
@@ -2288,9 +2290,9 @@ function gosterolke(olke) {
 
 
     let kod = ''
-    data.slice(0, olke).map((item2)=> {
-       
-            kod += `
+    data.slice(0, olke).map((item2) => {
+
+        kod += `
             <div class="olke">
              <div class="bayraq">
                 <img src="${item2.flag}" alt="bayraq" />
@@ -2306,13 +2308,13 @@ function gosterolke(olke) {
                         </div>
                         </div>
         `
-    
-        
-        })
-        olkeler.innerHTML = kod
-    
+
+
+    })
+    olkeler.innerHTML = kod
+
 }
-let coxal = 0
+let coxal = 1
 function reset() {
     let artir = 10
     coxal++
@@ -2323,9 +2325,7 @@ function reset() {
 gosterolke(21)
 
 
-function drop() {
-    mobilmenu.classList.toggle('open')
-}
+function drop() { menu.classList.toggle('open') }
 
 function deyis() {
 
@@ -2333,6 +2333,156 @@ function deyis() {
     element.classList.toggle("dark-mode");
 
 }
+
+function showEurope(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Europe') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+function showAsia(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Asia') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+function showAmericas(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Americas') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+function showOceania(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Oceania') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+function showAntarctic(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Antarctic') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+function showAfrica(e) {
+    e.preventDefault()
+
+    const olkem = document.getElementById('olkem')
+    olkem.innerHTML = ''
+    data.map(item => {
+        if (item.region === 'Africa') {
+            const olke = document.createElement('div')
+            olke.className = 'olke';
+
+            olke.innerHTML = `
+                <img src="${item.flag}" alt="img" />
+                <p>${item.region}</p>
+                <p>${item.id}</p>
+                <h3>${item.name}, ${item.capital}</h3>
+                <div id="span">
+                    <p>Population: ${item.population}</p>
+                    <span>${item.area} km<sup>2</sup></span>
+                </div>
+            `;
+            olkem.appendChild(olke);
+        }
+    });
+}
+
+
+
+
+
 
 
 

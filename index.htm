@@ -17,11 +17,11 @@
             <div class="headercontent">
                 <div class="dekstop">
                     <div class="content-desktop">
-                        <a href="#">Europe</a>
+                        <a href="#" id="Europe" onclick="showEurope(event)">Europe</a>
 
-                        <a href="#">Asia</a>
+                        <a href="#" id="Asia" onclick="showAsia(event)">Asia</a>
 
-                        <a href="#">Americas</a>
+                        <a href="#" id="Americas" onclick="showAmericas(event)">Americas</a>
 
                         <a href="#">
 
@@ -37,14 +37,14 @@
                             </svg>
 
                         </a>
-                        <a href="#">Africa</a>
+                        <a href="#"  id="Africa" onclick="showAfrica(event)">Africa</a>
 
-                        <a href="#">Oceania</a>
+                        <a href="#" id="Oceania" onclick="showOceania(event)">Oceania</a>
 
-                        <a href="#">Antarctic</a>
+                        <a href="#" id="Antarctic" onclick="showAntarctic(event)">Antarctic</a>
 
-                        <svg class="svgdes" onclick="deyis()" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
-                            stroke-linecap="round" stroke-linejoin="round" class="svg2"
+                        <svg class="svgdes" onclick="deyis()" stroke="currentColor" fill="none" stroke-width="2"
+                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="svg2"
                             xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="4"></circle>
                             <path d="M12 2v2"></path>
@@ -88,25 +88,32 @@
                         </svg>
 
 
-                        <button onclick="drop()" class="bars">
-                            <i class="fa-solid fa-bars"></i>
-                        </button>
+                                  <i  onclick="drop()" class="fa-solid fa-bars"></i>
 
                     </div>
-                    <div class="mobilemenu">
-                        <ul id="mobilmenu" class="show">
-                                <li><a href="#">Europe</a></li>
-                                        <li><a href="#">Asia</a></li>
-                                        <li><a href="#">Americas</a></li>
-                                        <li><a href="#">Africas</a></li>
-                                        <li><a href="#">Oceania</a></li>
-                                        <li><a href="#">Antarctic</a></li>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <a href="#" id="europe" onclick="showEurope(event)">Europe</a>
+                            </li>       
+                            <li>
+                                <a href="#" id="asia" onclick="showAsia(event)">Asia</a>
+                            </li>       
+                            <li>
+                                <a href="#" id="americas" onclick="showAmericas(event)">Americas</a>
+                            </li>       
+                            <li>
+                                <a href="#" id="Africa" onclick="showAfrica(event)">Africa</a>
+                            </li>       
+                            <li>
+                                <a href="#" id="Oceania" onclick="showOceania(event)">Oceania</a>
+                            </li> 
+                            <li>
+                                <a href="#" id="Antarctic" onclick="showAntarctic(event)">Antarctic</a>    
+                            </li>         
                         </ul>
                     </div>
-
-                   
         </nav>
-        
     </header>
     <main>
         <div class="text-content">
@@ -120,18 +127,18 @@
             </div>
         </div>
         <div class="frstcountry"></div>
-        <div class="olkeler"></div>
+        <div  id="olkem" class="olkeler"></div>
         <div class="show-buton">
             <button onclick="reset()">Show</button>
         </div>
     </main>
     <footer>
-       <div class="footercont">
-        <img src="fluer.png" alt="Fluer">
-        <h4>Fluer Softs tərəfindən hazırlanmışdır</h4>
-       </div>
+        <div class="footercont">
+            <img src="fluer.png" alt="Fluer">
+            <h4>Fluer Softs tərəfindən hazırlanmışdır</h4>
+        </div>
     </footer>
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
