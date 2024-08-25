@@ -1,5 +1,6 @@
+AOS.init();
 
-let data = [
+const data = [
     {
         "area": 3903,
         "id": "SGS",
@@ -2252,81 +2253,67 @@ let data = [
     }
 ]
 
+const randomCard = document.querySelector('#randomCard')
+const cards = document.querySelector('#cards')
+const section1 = document.querySelector("#section1")
+const section2 = document.querySelector("#section2")
+const main1 = document.getElementById("main1")
+const main2 = document.getElementById("main2")
 
 
-let frstcountry = document.querySelector('.frstcountry')
-let olkeler = document.querySelector('.olkeler')
-const menu = document.getElementById("menu")
-const nav = document.querySelector("nav")
-const link = menu.querySelectorAll('a')
-const btn = document.querySelector("#btn")
-
-
-
-function basla() {
-    data.sort(() => Math.random() - 0.5);
-
-    data.map((item) => {
-
-        frstcountry.innerHTML =
-            `<div class="img">
-    <img src="${item.flag}" alt="Country flag"></div>
-    <div class="desc">
-        <h3><a href="#">${item.name}</a></h3>
-        <h5><a href="#">${item.region}</a></h5>
-        <p>Capital: <span class="capital">${item.capital}</span></p>
-        <p>Area: <span class="area">${item.area} km<sup>2</sup></span></p>
-        <p>Popilation: <span class="ehali">${item.population}</span></p>
-     </div>`
-    })
-
-    function rand(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+function getRandomCard() {
+    const randomIndex = Math.floor(Math.random() * data.length)
+    const item = data[randomIndex]
+    randomCard.innerHTML = `
+        <a rel="noopener noreferrer" href="#"
+            class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
+            <img src="${item.flag}" alt=""
+                class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500">
+            <div class="p-6  card24 space-y-2 lg:col-span-5 bg-[#67e8f9]">
+                <h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
+                    ${item.name}</h3>
+                <span class="text-xs dark:text-gray-600">${item.capital}</span>
+                <p>Sahesi: ${item.area}, Əhalisi: ${item.population}</p>
+            </div>
+        </a>`
 }
-basla()
-function gosterolke(olke) {
+getRandomCard();
 
-    data.sort(() => Math.random() - 0.5);
+let deyisen = 20
 
+function olkeyeget(regionArg) {
+    document.getElementById('main1').style.display='block'
+    document.getElementById('main2').style.display='none'
+    let arr = []
+    if (regionArg == "") arr = data.slice(0, deyisen)
+    else arr = data;
 
-    let kod = ''
-    data.slice(0, olke).map((item2) => {
+    cards.innerHTML = '';
 
-        kod += `
-            <div class="olke">
-             <div class="bayraq">
-                <img src="${item2.flag}" alt="bayraq" />
-                </div>
-                <div class="about">
-                     <h5>${item2.region}</h5>
-                    <h3>${item2.name}</h3>
-                    </div>
-                    <div class="statiska">
-                        <div>Population: <span>${item2.population}</span></div>
-                        <div>${item2.area} km<sup>2</sup></div></span>
-                        </div>
-                        </div>
-                        </div>
-        `
-
-
-    })
-    olkeler.innerHTML = kod
-
-}
-let coxal = 1
-function reset() {
-    let artir = 10
-    coxal++
-    gosterolke(artir * coxal)
-
+    arr.map(item => {
+        if (item.region.includes(regionArg)) {
+            cards.innerHTML += `
+            <article onclick="olkeinfoget('${item.id}')"  data-aos="fade-right" class="flex flex-col dark:bg-gray-50">
+                 <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+                     <img alt="" class="object-cover w-full h-52 dark:bg-gray-500"
+                         src="${item.flag}">
+                 </a>
+                 <div  class="flex card23 flex-col flex-1 p-6 bg-[#a3e635]">
+                     <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">${item.name}</h3>
+                     <a rel="noopener noreferrer" href="#"
+                         class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">${item.capital}</a>
+                     <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                         <span>Area: ${item.area}</span>
+                         <span>Population: ${item.population}</span>
+                     </div>
+                 </div>
+             </article>`;
+        }
+    });
 }
 
-gosterolke(21)
+olkeyeget("");
 
-
-function drop() { menu.classList.toggle('open') }
 
 function deyis() {
 
@@ -2335,154 +2322,85 @@ function deyis() {
 
 }
 
-function showEurope(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Europe') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
-
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
+function dahacoxolkem() {
+    deyisen += 20
+    olkeyeget("")
 }
-function showAsia(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Asia') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
 
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
+const firstInp = document.getElementById("firstInp")
+
+let flag = false
+function showInp() {
+    firstInp.style.maxHeight = flag ? "0" : "100px"
+    flag = !flag
 }
-function showAmericas(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Americas') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
 
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
-}
-function showOceania(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Oceania') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
-
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
-}
-function showAntarctic(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Antarctic') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
-
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
-}
-function showAfrica(e) {
-    e.preventDefault()
-   btn.style.display = 'none'
-    const olkem = document.getElementById('olkem')
-    olkem.innerHTML = ''
-    data.map(item => {
-        if (item.region === 'Africa') {
-            const olke = document.createElement('div')
-            olke.className = 'olke';
-
-            olke.innerHTML = `
-                <img src="${item.flag}" alt="img" />
-                <p>${item.region}</p>
-                <p>${item.id}</p>
-                <h3>${item.name}, ${item.capital}</h3>
-                <div id="span">
-                    <p>Population: ${item.population}</p>
-                    <span>${item.area} km<sup>2</sup></span>
-                </div>
-            `;
-            olkem.appendChild(olke);
-        }
-    });
+function randomdus() {
+    window.scrollTo({
+        top: 585,
+        behavior: 'smooth',
+    })
 }
 
 
+function axtariset() {
+    const inpVal = document.getElementById("search").value
 
+    if (inpVal.trim() === "") {
+        section1.style.display = "block"
+        section2.style.display = "block"
+        olkeyeget("")
+    } else {
+        section1.style.display = "none"
+        section2.style.display = "none"
+        cards.innerHTML = ""
+        data.map(item => {
+            if (item.name.toLocaleLowerCase().startsWith(inpVal.toLocaleLowerCase())) {
+                cards.innerHTML += `
+                <article data-aos="fade-right" class="flex flex-col dark:bg-gray-50">
+                     <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+                         <img alt="" class="object-cover w-full h-52 dark:bg-gray-500"
+                             src="${item.flag}">
+                     </a>
+                     <div class="flex flex-col flex-1 p-6">
+                         <a rel="noopener noreferrer" href="#"
+                             aria-label="Te nulla oportere reprimique his dolorum"></a>
+                         <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">${item.name}</h3>
+                         <a rel="noopener noreferrer" href="#"
+                             class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">${item.capital}</a>
+                         <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                             <span>Area: ${item.area}</span>
+                             <span>Popilation: ${item.population}</span>
+                         </div>
+                     </div>
+                 </article>`
+            }
+        })
+    }
+}
+function olkeinfoget(id){ 
+    
 
+    const yeniolke = data.find(yeniolke => yeniolke.id === id);
+    if (yeniolke) {
+       
+        document.getElementById('main1').style.display = 'none';
+
+        document.getElementById('main2').style.display = 'block';
+        document.getElementById('main2').innerHTML = `
+            <div data-aos="flip-right" class="container mx-auto flex px-5 py-24 min-h-[74vh] md:flex-row flex-col items-center">
+            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-black">Grenada
+            <p class="text-lg">  Paytaxtı:  St. George's</p></h1>
+            <p class="mb-2 leading-relaxed">Danışılan dillər: English</p>
+            <p class="mb-2 leading-relaxed"><b>Əskinazları</b>:  Eastern Caribbean dollar və onun qısaltması XCD </p><p class="mb-2 leading-relaxed"><b>Regionu</b>: Americas</p><p class="mb-2 leading-relaxed"><b>Ümumi Sahısi</b>: 344</p>
+            <p class="mb-2 leading-relaxed"><b>Əhalisi</b>: 112.519</p><p class="mb-2 leading-relaxed"><b>Saat qurşağı</b>: UTC-04:00</p><div class="flex justify-start gap-[8px] flex-wrap"><p>Ada ölkəsidir, yani qonşusu yoxdur!</p></div></div><div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"><img class="object-cover object-center rounded" alt="hero" src="https://flagcdn.com/gd.svg"></div></div>
+        `;
+
+    }  
+       
+    }
+  
 
 
 
