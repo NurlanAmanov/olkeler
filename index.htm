@@ -70,16 +70,42 @@
             <path d="m6.34 17.66-1.41 1.41"></path>
             <path d="m19.07 4.93-1.41 1.41"></path>
         </svg>
-            <button title="Button" type="button" class="p-4 md:hidden">
+        <button onclick="show()" id="menuToggle"   >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6 dark:text-gray-800">
+                    class="w-6 dark:text-gray-800">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
                 </svg>
             </button>
             
-
+       
         </div>
+    
+            <nav>
+                <span>  
+                    <span onclick="show()" id="menuToggle"   >
+                   X
+                </span>
+               <ul id="menu">
+                <li  class="flex">
+                    <span onclick="olkeyeget('Africa')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Africa</span>
+                </li>
+                <li class="flex">
+                    <span onclick="olkeyeget('Europe')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Europe</span>
+                </li>
+                <li class="flex">
+                    <span onclick="olkeyeget('Oceania')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Oceania</span>
+                </li>
+                <li class="flex">
+                    <span onclick="olkeyeget('Asia')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Asia</span>
+                </li>
+                <li class="flex">
+                    <span onclick="olkeyeget('Americas')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Americas</span>
+                </li>
+                <li class="flex">
+                    <span onclick="olkeyeget('Antarctic')" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Antarctic</span>
+                </li>
+            </ul>
     </header>
 
     <main id="main1">
@@ -104,8 +130,8 @@
                     <button onclick="showInp()"
                         class="px-8 py-3 m-2 text-lg font-semibold rounded bg-indigo-500 text-white">Search
                     </button>
-                    <button onclick="randomdus()"
-                        class="px-8 py-3 m-2 text-lg font-bold border rounded bg-[#000] text-white">Have a lock
+                    <button  onclick="randomdus()"
+                        class="px-8 py-3 m-2 text-lg font-bold border rounded bg-[#000] btn2 text-white">Have a lock
                        </button>
                 </div>
             </div>
@@ -136,31 +162,18 @@
         </div>
     </main>
     <main id="main2" style="display: none;"></main>
-    <footer class="px-4 py-8 bg-[#0ea5e9] dark:text-gray-600">
+    <footer class="px-4 py-4 bg-[#0ea5e9] dark:text-gray-600">
         <div
-            class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
-            <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
-                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full dark:bg-violet-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
-                        class="w-5 h-5 rounded-full dark:text-gray-50">
-                        <path
-                            d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z">
-                        </path>
-                    </svg>
-                </div>
-                <ul  class="flex flex-wrap items-center space-x-4 sm:space-x-8">
-                    <li>
-                        <a rel="noopener noreferrer" href="https://www.instagram.com/fluer.softs/">Fluer Softs</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+            class="container flex  items-center justify-center text-center">
+            <ul  class="flex items-cente  justify-center text-center text-lg">
                 <li>
-                    <a rel="noopener noreferrer" href="https://www.instagram.com/fluer.softs/">Instagram</a>
+                    <a rel="noopener noreferrer "  class="text-lg text-center" href="https://www.instagram.com/fluer.softs/">Fluer Softs</a>
                 </li>
-              
+                
             </ul>
+                
+            </div>
+           
         </div>
     </footer>
 

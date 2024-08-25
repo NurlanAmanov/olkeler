@@ -2259,6 +2259,18 @@ const section1 = document.querySelector("#section1")
 const section2 = document.querySelector("#section2")
 const main1 = document.getElementById("main1")
 const main2 = document.getElementById("main2")
+const nav = document.querySelector("nav")
+        const droplar = document.querySelector("droplar")
+
+        function show() {
+            nav.classList.toggle('left')
+        }
+        function dropdown(element){
+                const drop = element.nextElementSibling;
+                drop.classList.toggle('block')
+            }   
+    
+
 
 
 function getRandomCard() {
@@ -2269,10 +2281,12 @@ function getRandomCard() {
             class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
             <img src="${item.flag}" alt=""
                 class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500">
-            <div class="p-6  card24 space-y-2 lg:col-span-5 bg-[#67e8f9]">
+            <div class="p-6  card24 space-y-2 lg:col-span-5 bg-gray-200">
                 <h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
                     ${item.name}</h3>
+
                 <span class="text-xs dark:text-gray-600">${item.capital}</span>
+           
                 <p>Sahesi: ${item.area}, Əhalisi: ${item.population}</p>
             </div>
         </a>`
@@ -2282,10 +2296,10 @@ getRandomCard();
 let deyisen = 20
 
 function olkeyeget(regionArg) {
-    document.getElementById('main1').style.display='block'
-    document.getElementById('main2').style.display='none'
-    let arr = []
-    if (regionArg == "") arr = data.slice(0, deyisen)
+    document.getElementById('main1').style.display = 'block';
+    document.getElementById('main2').style.display = 'none';
+    let arr = [];
+    if (regionArg == "") arr = data.slice(0, deyisen);
     else arr = data;
 
     cards.innerHTML = '';
@@ -2293,15 +2307,16 @@ function olkeyeget(regionArg) {
     arr.map(item => {
         if (item.region.includes(regionArg)) {
             cards.innerHTML += `
-            <article onclick="olkeinfoget('${item.id}')"  data-aos="fade-right" class="flex flex-col dark:bg-gray-50">
+            <article onclick="olkeinfoget('${item.id}')" data-aos="fade-right" class="flex flex-col dark:bg-gray-50">
                  <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                      <img alt="" class="object-cover w-full h-52 dark:bg-gray-500"
                          src="${item.flag}">
                  </a>
-                 <div  class="flex card23 flex-col flex-1 p-6 bg-[#a3e635]">
+                 <div class="flex card23 flex-col flex-1 p-6 bg-gray-200">
                      <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">${item.name}</h3>
                      <a rel="noopener noreferrer" href="#"
                          class="text-xs tracking-wider uppercase hover:underline dark:text-violet-600">${item.capital}</a>
+                     <h3 class="text-md font-bold text-[#000]">${item.region}</h3>
                      <div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
                          <span>Area: ${item.area}</span>
                          <span>Population: ${item.population}</span>
@@ -2311,7 +2326,6 @@ function olkeyeget(regionArg) {
         }
     });
 }
-
 olkeyeget("");
 
 
@@ -2378,28 +2392,28 @@ function axtariset() {
         })
     }
 }
-function olkeinfoget(id){ 
-    
-
+function olkeinfoget(id) { 
     const yeniolke = data.find(yeniolke => yeniolke.id === id);
     if (yeniolke) {
-       
         document.getElementById('main1').style.display = 'none';
-
         document.getElementById('main2').style.display = 'block';
         document.getElementById('main2').innerHTML = `
-            <div data-aos="flip-right" class="container mx-auto flex px-5 py-24 min-h-[74vh] md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-black">Grenada
-            <p class="text-lg">  Paytaxtı:  St. George's</p></h1>
-            <p class="mb-2 leading-relaxed">Danışılan dillər: English</p>
-            <p class="mb-2 leading-relaxed"><b>Əskinazları</b>:  Eastern Caribbean dollar və onun qısaltması XCD </p><p class="mb-2 leading-relaxed"><b>Regionu</b>: Americas</p><p class="mb-2 leading-relaxed"><b>Ümumi Sahısi</b>: 344</p>
-            <p class="mb-2 leading-relaxed"><b>Əhalisi</b>: 112.519</p><p class="mb-2 leading-relaxed"><b>Saat qurşağı</b>: UTC-04:00</p><div class="flex justify-start gap-[8px] flex-wrap"><p>Ada ölkəsidir, yani qonşusu yoxdur!</p></div></div><div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6"><img class="object-cover object-center rounded" alt="hero" src="https://flagcdn.com/gd.svg"></div></div>
-        `;
+      <div data-aos="flip-right" class="container mx-auto flex px-5 py-4 min-h-[74vh] md:flex-row flex-col items-center justify-between">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-black">${yeniolke.name}</h1>
+        <p class="text-lg">Paytaxtı: ${yeniolke.capital}</p>
+        <p class="mb-2 leading-relaxed"><b>Regionu</b>: ${yeniolke.region}</p>
+        <p class="mb-2 leading-relaxed"><b>Ümumi Sahəsi</b>: ${yeniolke.area}</p>
+        <p class="mb-2 leading-relaxed"><b>Əhalisi</b>: ${yeniolke.population}</p>
+    </div>
+    <div class="lg:max-w-lg lg:w-full  w-5/6">
+        <img class="object-cover w-full md:w-full md:h-auto object-center rounded" alt="hero" src="${yeniolke.flag}">
+    </div>
+</div>
 
+        `;
     }  
-       
-    }
+}
   
 
 
